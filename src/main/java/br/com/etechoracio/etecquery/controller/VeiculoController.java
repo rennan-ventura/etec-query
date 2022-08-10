@@ -50,7 +50,7 @@ public class VeiculoController {
 	
 	@GetMapping("/telefones")
 	public List<Veiculo> buscarComTelefones(@PathVariable String fone) {
-		return null;
+		return dao.buscarComTelefones(fone);
 	}
 	
 }
