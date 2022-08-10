@@ -28,29 +28,29 @@ public class VeiculoController {
 	
 	@GetMapping("/fabricante/{fabricante}")
 	public List<Veiculo> buscarPorFabricante(@PathVariable String fabricante) {
-		return dao.buscarPorFabricante(fabricante);
+		return dao.findByFabricante(fabricante);
 	}
 	
 	@GetMapping("/cambio/{cambio}/fabricante/{fabricante}")
 	public List<Veiculo> buscarPorTipoCambioEFabricante(@PathVariable TipoCambioEnum cambio,
 														@PathVariable String fabricante) {
-		return dao.buscarPorTipoCambioEFabricante(cambio, fabricante);
+		return dao.findByTipoCambioAndFabricante(cambio, fabricante);
 	}
 	
 	@GetMapping("/ano-fabricacao/{anoFabricacao}")
 	public List<Veiculo> buscarPorAnoFabricacao(@PathVariable Integer anoFabricacao) {
-		return dao.buscarPorAnoFabricacao(anoFabricacao);
+		return dao.findByAnoFabricacao(anoFabricacao);
 	}
 	
 	@GetMapping("/valor")
 	public List<Veiculo> buscarPorValor(@RequestParam BigDecimal min, 
 										@RequestParam BigDecimal max) {
-		return dao.buscarPorValor(min, max);
+		return dao.findByValorBetween(min, max);
 	}
 	
 	@GetMapping("/telefones")
-	public List<Veiculo> buscarComTelefones(@PathVariable String fone) {
-		return dao.buscarComTelefones(fone);
+	public List<Veiculo> buscarComTelefonesIsNotNull() {
+		return dao.findByTelefonesIsNotNull();
 	}
 	
 }

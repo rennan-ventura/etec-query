@@ -11,13 +11,13 @@ import br.com.etechoracio.etecquery.model.Veiculo;
 public interface VeiculoDAO extends JpaRepository<Veiculo, Long> {
 	List<Veiculo> findByTipoCambio(TipoCambioEnum tipo);
 
-	List<Veiculo> buscarPorFabricante(String fabricante);
+	List<Veiculo> findByFabricante(String fabricante);
 	
-	List<Veiculo> buscarPorTipoCambioEFabricante(TipoCambioEnum tipo, String fabricante);
+	List<Veiculo> findByTipoCambioAndFabricante(TipoCambioEnum tipo, String fabricante);
 	
-	List<Veiculo> buscarPorAnoFabricacao(Integer anoFabricação);
+	List<Veiculo> findByAnoFabricacao(Integer anoFabricação);
 	
-	List<Veiculo> buscarPorValor(BigDecimal min, BigDecimal max);
+	List<Veiculo> findByValorBetween(BigDecimal min, BigDecimal max);
 	
-	List<Veiculo> buscarComTelefones(String fone);
+	List<Veiculo> findByTelefonesIsNotNull();
 }

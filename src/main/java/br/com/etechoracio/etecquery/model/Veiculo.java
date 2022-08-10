@@ -16,7 +16,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "TBL_VEICULO")
+@Table(name = "tbl_veiculo")
 @Getter
 @Setter
 public class Veiculo {
@@ -39,7 +39,7 @@ public class Veiculo {
 	private String modelo;
 	
 	@Column(name = "NR_VALOR")
-	private BigDecimal valor;
+	private float valor;
 	
 	@Column(name = "TP_CAMBIO")
 	@Enumerated(EnumType.STRING)
